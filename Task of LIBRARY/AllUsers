@@ -1,0 +1,8 @@
+<?php
+if(isset($_SESSION['user_Email'])){
+echo"<script>alert('Please Login First');</script>";
+header("Location:login.php");//redirect me to login page
+exit;
+}
+
+?>

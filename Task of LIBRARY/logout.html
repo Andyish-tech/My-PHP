@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged Out - Library Management System</title>
+    
+</head>
+<?php
+session_start();
+session_destroy();
+session_unset();
+
+header("Location: login.php");
+?>
+<style>
+    :root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --background-color: #ecf0f1;
+    --text-color: #333;
+    --success-color: #2ecc71;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.logout-content {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.logout-confirmation {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: var(--success-color);
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.login-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #2980b9;
+}
+
+.feedback-section {
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+
+textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+.submit-feedback {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-feedback:hover {
+    background-color: #2980b9;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+@media (max-width: 480px) {
+    .logout-content {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}
+
+
+</style>
+<body>
+    <div class="container">
+        <main class="logout-content">
+            <section class="logout-confirmation">
+                <h1><span class="icon">✔️</span> You have successfully logged out</h1>
+                <p>Thank you for using our Library Management System.</p>
+                <a href="login.html" class="login-button"><span class="icon">🔙</span> Back to Login</a>
+            </section>
+            <section class="feedback-section">
+                <h2><span class="icon">💬</span> We'd love your feedback!</h2>
+                <form class="feedback-form">
+                    <label for="feedback">How was your experience with our dashboard?</label>
+                    <textarea id="feedback" name="feedback" rows="4" placeholder="Share your thoughts..."></textarea>
+                    <button type="submit" class="submit-feedback">Submit Feedback</button>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+
