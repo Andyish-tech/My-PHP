@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Challenges Integration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .integration-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #000;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .steps-list {
+            flex: 1;
+            list-style: none;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-number {
+            background-color: #3366FF;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .illustration {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .illustration img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .cta-section {
+            background-color: #3366FF;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before,
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .cta-section::before {
+            top: -150px;
+            left: -150px;
+        }
+
+        .cta-section::after {
+            bottom: -150px;
+            right: -150px;
+        }
+
+        .cta-title {
+            color: white;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            background-color: white;
+            color: #3366FF;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: transform 0.2s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .illustration {
+                order: -1;
+                max-width: 100%;
+            }
+
+            .section-title {
+                font-size: 1.25rem;
+                margin-bottom: 2rem;
+            }
+
+            .cta-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .step-item {
+                margin-bottom: 1rem;
+            }
+
+            .cta-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .cta-title {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="integration-section">
+            <h2 class="section-title">How Skills Challenges Program can Be Integrated into your Learning Institution</h2>
+            
+            <div class="content-wrapper">
+                <ul class="steps-list">
+                    <li class="step-item">
+                        <span class="step-number">1</span>
+                        <span class="step-text">As Client Development and Job Readiness Program</span>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-number">2</span>
+                        <span class="step-text">As Skills Assessments Method after a course or a term</span>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-number">3</span>
+                        <span class="step-text">As educational activities to supplement your courses</span>
+                    </li>
+                    <li class="step-item">
+                        <span class="step-number">4</span>
+                        <span class="step-text">As the portfolio of the Students</span>
+                    </li>
+                </ul>
+                
+                <div class="illustration">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learn_ber_footer-qXQ8mpuMQxYKcF5NviAmq6gSr9gXO4.png" alt="Skills Challenges Interface">
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 class="cta-title">Ready to transform your learning institution?</h2>
+            <a href="#" class="cta-button">Let's Partner</a>
+        </section>
+    </div>
+</body>
+</html>

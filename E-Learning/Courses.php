@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenges Grid</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #4169E1;
+      --text-primary: #1A1A1A;
+      --text-secondary: #666666;
+      --green: #22C55E;
+      --border-color: #E5E7EB;
+      --background-gray: #F9FAFB;
+      --navy-blue: #001233;
+      --primary-blue: #4169E1;
+      --text-light: #FFFFFF;
+      --text-muted: rgba(255, 255, 255, 0.7);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    .breadcrumb {
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--background-gray);
+    }
+
+    .breadcrumb a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .breadcrumb span {
+      color: var(--text-secondary);
+    }
+
+    .challenges-grid {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .challenge-card {
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: white;
+    }
+
+    .card-header {
+      background: var(--primary-blue);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .card-header img {
+      width: 120px;
+      height: auto;
+    }
+
+    .status-badge {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: var(--green);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: var(--background-gray);
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .card-meta {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .meta-item {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+
+    .view-button {
+      display: inline-block;
+      background: var(--primary-blue);
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 0.375rem;
+      text-align: center;
+      font-weight: 500;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .challenges-grid {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* style for footer */
+
+    
+
+   
+
+    .footer {
+      background-color: var(--navy-blue);
+      color: var(--text-light);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo {
+      width: 120px;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-item i {
+      margin-top: 0.25rem;
+    }
+
+    .quick-links h3 {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .quick-links ul {
+      list-style: none;
+    }
+
+    .quick-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .quick-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .quick-links a:hover {
+      color: var(--text-light);
+    }
+
+    .newsletter h3 {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .newsletter p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.375rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-light);
+    }
+
+    .newsletter-form input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .newsletter-form button {
+      padding: 0.75rem 1.5rem;
+      background: var(--primary-blue);
+      color: var(--text-light);
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      color: var(--text-light);
+      background: rgba(255, 255, 255, 0.1);
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color 0.2s;
+    }
+
+    .social-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .footer-bottom a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--text-light);
+    }
+
+    .legal-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .legal-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body> 
+  <nav class="breadcrumb">
+    <a href="#">Go Back</a>
+    <span>/</span>
+    <a href="#">Challenges & Hackathons</a>
+  </nav>
+
+  <section class="challenges-grid">
+    <!-- Challenge Card 1 -->
+    <article class="challenge-card">
+      <div class="card-header">
+        <img src=".\Assets\logo-removebg-preview.png" alt="Umurava logo">
+        <span class="status-badge">Open</span>
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Design a Dashboard for SokoFund</h2>
+        <div class="skills-list">
+          <span class="skill-tag">UX/UI Design</span>
+          <span class="skill-tag">User Research</span>
+          <span class="skill-tag">User Persona</span>
+        </div>
+        <div class="card-meta">
+          <div class="meta-item">
+            <span>Seniority Level:</span>
+            <span>Junior, Intermediate, Senior</span>
+          </div>
+          <div class="meta-item">
+            <span>Timeline:</span>
+            <span>15 Days</span>
+          </div>
+        </div>
+        <a href="#" class="view-button">View Challenge</a>
+      </div>
+      </div>
+    </article>
+
+    
+    <article class="challenge-card">
+      <div class="card-header">
+        <img src="" alt="Umurava logo">
+        <span class="status-badge">Open</span>
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Design a Dashboard for SokoFund</h2>
+        <div class="skills-list">
+          <span class="skill-tag">UX/UI Design</span>
+          <span class="skill-tag">User Research</span>
+          <span class="skill-tag">User Persona</span>
+        </div>
+        <div class="card-meta">
+          <div class="meta-item">
+            <span>Seniority Level:</span>
+            <span>Junior, Intermediate, Senior</span>
+          </div>
+          <div class="meta-item">
+            <span>Timeline:</span>
+            <span>15 Days</span>
+          </div>
+        </div>
+        <a href="#" class="view-button">View Challenge</a>
+      </div>
+      </div>
+    </article>
+
+    
+    <article class="challenge-card">
+      <div class="card-header">
+        <img src="" alt="Umurava logo">
+        <span class="status-badge">Open</span>
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Design a Dashboard for SokoFund</h2>
+        <div class="skills-list">
+          <span class="skill-tag">UX/UI Design</span>
+          <span class="skill-tag">User Research</span>
+          <span class="skill-tag">User Persona</span>
+        </div>
+        <div class="card-meta">
+          <div class="meta-item">
+            <span>Seniority Level:</span>
+            <span>Junior, Intermediate, Senior</span>
+          </div>
+          <div class="meta-item">
+            <span>Timeline:</span>
+            <span>15 Days</span>
+          </div>
+        </div>
+        <a href="#" class="view-button">View Challenge</a>
+      </div>
+      </div>
+    </article>
+
+    
+    <article class="challenge-card">
+      <div class="card-header">
+        <img src="" alt="Umurava logo">
+        <span class="status-badge">Open</span>
+      </div>
+      <div class="card-content">
+        <h2 class="card-title">Design a Dashboard for SokoFund</h2>
+        <div class="skills-list">
+          <span class="skill-tag">UX/UI Design</span>
+          <span class="skill-tag">User Research</span>
+          <span class="skill-tag">User Persona</span>
+        </div>
+        <div class="card-meta">
+          <div class="meta-item">
+            <span>Seniority Level:</span>
+            <span>Junior, Intermediate, Senior</span>
+          </div>
+          <div class="meta-item">
+            <span>Timeline:</span>
+            <span>15 Days</span>
+          </div>
+        </div>
+        <a href="#" class="view-button">View Challenge</a>
+      </div>
+      </div>
+    </article>
+
+    <!-- Additional challenge cards can be duplicated here -->
+  </section>
+
+  <!-- footer Section -->
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-info">
+        <img src="" alt="Company Logo" class="footer-logo">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>career@tickets.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>89 KG 14 Ave, Kigali</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+250 700 000</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Program</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="newsletter">
+        <h3>Join our newsletter to keep up to date with us!</h3>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Email" aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Google Plus"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Copyright © All Rights Reserved SawaPay 2024.</p>
+      <div class="legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms and Conditions</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

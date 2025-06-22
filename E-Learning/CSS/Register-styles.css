@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f4f7f6;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+  color: #3498db;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 400;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.register-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+}
+
+.register-button:hover {
+  background-color: #2980b9;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.login-link a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+}
+
+/* Icon styles */
+.fas {
+  margin-right: 0.5rem;
+}
+

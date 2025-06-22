@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Institutions Partners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #000000;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .logo-container {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(70%);
+            transition: filter 0.3s ease;
+        }
+
+        .logo:hover {
+            filter: grayscale(0%) opacity(100%);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .logo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.25rem;
+                margin-bottom: 2rem;
+            }
+
+            .logo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 1rem;
+            }
+
+            .logo-container {
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            .logo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .logo-container {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="section-title">Join a few Educational Institutions using Skills Challenges by Umurava</h2>
+        
+        <div class="logo-grid">
+            <!-- Using placeholder.com for demo logos. Replace with actual logo URLs -->
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learn3-HdRL1npixYuPnw3ulKFkFCu2wB0Dxh.png" alt="Partner Logo 1" class="logo">
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learn3-HdRL1npixYuPnw3ulKFkFCu2wB0Dxh.png" alt="Partner Logo 2" class="logo">
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learn3-HdRL1npixYuPnw3ulKFkFCu2wB0Dxh.png" alt="Partner Logo 3" class="logo">
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learn3-HdRL1npixYuPnw3ulKFkFCu2wB0Dxh.png" alt="Partner Logo 4" class="logo">
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learn3-HdRL1npixYuPnw3ulKFkFCu2wB0Dxh.png" alt="Partner Logo 5" class="logo">
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learn3-HdRL1npixYuPnw3ulKFkFCu2wB0Dxh.png" alt="Partner Logo 6" class="logo">
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learn3-HdRL1npixYuPnw3ulKFkFCu2wB0Dxh.png" alt="Partner Logo 7" class="logo">
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learn3-HdRL1npixYuPnw3ulKFkFCu2wB0Dxh.png" alt="Partner Logo 8" class="logo">
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learn3-HdRL1npixYuPnw3ulKFkFCu2wB0Dxh.png" alt="Partner Logo 9" class="logo">
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/learn3-HdRL1npixYuPnw3ulKFkFCu2wB0Dxh.png" alt="Partner Logo 10" class="logo">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

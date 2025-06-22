@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Challenges</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #e8f0fe;
+            --text-color: #333;
+            --text-light: #666;
+            --background-color: #f8f9fa;
+            --card-background: #ffffff;
+            --success-color: #22c55e;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+            --sidebar-width: 240px;
+            --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        /* Layout */
+        .container {
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--primary-color);
+            padding: 24px;
+            position: fixed;
+            width: var(--sidebar-width);
+            height: 100vh;
+            color: white;
+        }
+
+        .logo {
+            padding: 12px 0;
+            margin-bottom: 32px;
+        }
+
+        .logo-img {
+            height: 32px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .user-profile {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .user-info h4 {
+            color: white;
+            font-size: 14px;
+        }
+
+        .user-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 24px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--secondary-color);
+        }
+
+        /* Challenges Section */
+        .challenges-section h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: var(--card-background);
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Challenge Cards */
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .challenge-card {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .company-logo {
+            height: 32px;
+            width: auto;
+        }
+
+        .status-tag {
+            padding: 4px 8px;
+            background-color: var(--success-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-content h3 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: var(--text-color);
+        }
+
+        .card-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .meta-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .meta-label {
+            color: var(--text-light);
+        }
+
+        .meta-value {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .open-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .open-btn:hover {
+            background-color: #1557b0;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal {
+            background-color: var(--card-background);
+            padding: 32px;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-icon {
+            width: 64px;
+            height: 64px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: var(--primary-color);
+        }
+
+        .modal-title {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .modal-description {
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            :root {
+                --sidebar-width: 200px;
+            }
+
+            .challenge-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 16px;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            .filter-group {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .filter-btn {
+                flex: 1;
+                text-align: center;
+            }
+
+            .search-container {
+                flex-direction: column;
+            }
+
+            .search-input {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .challenge-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-meta {
+                flex-direction: column;
+            }
+
+            .meta-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .modal {
+                padding: 24px;
+                margin: 16px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        .open-btn:focus,
+        .filter-btn:focus,
+        .search-input:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/community-VPYKco8P5jufwkL3SYrBdcYSlpjVIv.png" alt="Logo" class="logo-img">
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <span>📊</span>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <span>🎯</span>
+                    Challenges
+                </a>
+                <a href="#" class="nav-item">
+                    <span>👥</span>
+                    Community
+                </a>
+                <a href="#" class="nav-item">
+                    <span>⚙️</span>
+                    Settings
+                </a>
+            </nav>
+            <div class="user-profile">
+                <div class="user-avatar"></div>
+                <div class="user-info">
+                    <h4>Helen Sh</h4>
+                    <p>@helensh</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="search" placeholder="Search challenges..." class="search-input">
+            </div>
+
+            <!-- Challenges Section -->
+            <section class="challenges-section">
+                <h1>Challenges</h1>
+                <p class="subtitle">Join a challenge or hackathon to gain valuable work experience.</p>
+
+                <!-- Filters -->
+                <div class="filters">
+                    <div class="filter-group">
+                        <button class="filter-btn active">All Challenge</button>
+                        <button class="filter-btn">Completed Challenge</button>
+                    </div>
+                    <div class="filter-group">
+                        <button class="filter-btn">Open Challenge</button>
+                        <button class="filter-btn">Recent Challenge</button>
+                    </div>
+                </div>
+
+                <!-- Challenge Cards -->
+                <div class="challenge-grid">
+                    <!-- Card 1 -->
+                    <article class="challenge-card">
+                        <div class="card-header">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/community-VPYKco8P5jufwkL3SYrBdcYSlpjVIv.png" alt="Company Logo" class="company-logo">
+                            <span class="status-tag">New</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Design a Dashboard for Safehand, Fintech Product</h3>
+                            <div class="card-meta">
+                                <div class="meta-item">
+                                    <span class="meta-label">Severity Level:</span>
+                                    <span class="meta-value">Medium</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Timeline:</span>
+                                    <span class="meta-value">2 days</span>
+                                </div>
+                            </div>
+                            <button class="open-btn">Open</button>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="challenge-card">
+                        <div class="card-header">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/community-VPYKco8P5jufwkL3SYrBdcYSlpjVIv.png" alt="Company Logo" class="company-logo">
+                            <span class="status-tag">New</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Design a Mobile Banking App</h3>
+                            <div class="card-meta">
+                                <div class="meta-item">
+                                    <span class="meta-label">Severity Level:</span>
+                                    <span class="meta-value">Hard</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Timeline:</span>
+                                    <span class="meta-value">5 days</span>
+                                </div>
+                            </div>
+                            <button class="open-btn">Open</button>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="challenge-card">
+                        <div class="card-header">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/community-VPYKco8P5jufwkL3SYrBdcYSlpjVIv.png" alt="Company Logo" class="company-logo">
+                            <span class="status-tag">New</span>
+                        </div>
+                        <div class="card-content">
+                            <h3>Design an Investment Platform</h3>
+                            <div class="card-meta">
+                                <div class="meta-item">
+                                    <span class="meta-label">Severity Level:</span>
+                                    <span class="meta-value">Easy</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Timeline:</span>
+                                    <span class="meta-value">3 days</span>
+                                </div>
+                            </div>
+                            <button class="open-btn">Open</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

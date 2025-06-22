@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why We Are Solving This Problem</title>
+    <style>
+        :root {
+            --primary-blue: #2563EB;
+            --white: #ffffff;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --border-radius: 1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            padding: var(--spacing-lg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-lg);
+            color: #111827;
+        }
+
+        .grid-container {
+            display: grid;
+            gap: var(--spacing-md);
+            grid-template-columns: 1fr;
+        }
+
+        .card {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-number {
+            position: absolute;
+            top: var(--spacing-md);
+            left: var(--spacing-md);
+            width: 2rem;
+            height: 2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .card-content {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Tablet and above */
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card:first-child {
+                grid-column: 1 / -1;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+                margin-bottom: var(--spacing-lg);
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            body {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            .card {
+                min-height: 250px;
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+            }
+
+            .card-content {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="section-title">Why we are solving this problem</h1>
+    
+    <div class="grid-container">
+        <div class="card">
+            <div class="card-number">1</div>
+            <h2 class="card-title">Bridging the Experience GA</h2>
+            <p class="card-content">
+                Many talents acquire theoretical knowledge and are rejected from jobs because they lack work experience and are not able to put in action what they learned in the school.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-number">2</div>
+            <h2 class="card-title">Bridging Education and Employment</h2>
+            <p class="card-content">
+                Traditional education doesn't always prepare talents for the demands of the tech and digital economy and many talents need to upskill while at work.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-number">3</div>
+            <h2 class="card-title">Preparing Talents for Global Job Markets</h2>
+            <p class="card-content">
+                We are ensuring that African talents shine globally and make sure we are exporting high value global ready talents to the global job markets.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
